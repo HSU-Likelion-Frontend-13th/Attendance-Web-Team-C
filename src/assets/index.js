@@ -3,6 +3,6 @@
 import logo from "./header-logo.svg";
 import menu from "./menu.svg";
 import profile from "./profile.svg";
-import search from "./search";
+import search from "./search.svg";
 
 export { logo, menu, profile, search };
