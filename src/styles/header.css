@@ -8,18 +8,17 @@
 .logo {
 }
 
-.navi {
+.nav {
   font-size: 24px;
-  color: #7B7B7B;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 90px;
 }
 
-.navi a {
+.nav-item {
   text-decoration: none;
-  color: inherit; 
+  color: #7B7B7B;
   &:hover {
     text-decoration: underline;
   }
@@ -27,6 +26,7 @@
 
 .current {
   color: #111111;
+  font-weight: bold;
 }
 
 .util {
