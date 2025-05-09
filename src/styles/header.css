@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 76px 90px;
+}
+
+.logo {
+}
+
+.nav {
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 90px;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: #7B7B7B;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.current {
+  color: #111111;
+  font-weight: bold;
+}
+
+.util {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  >:hover {
+    cursor: pointer;
+  }
+}
