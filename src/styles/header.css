@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 76px 90px;
+}
+
+.logo {
+}
+
+.navi {
+  font-size: 24px;
+  color: #7B7B7B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 90px;
+}
+
+.navi a {
+  text-decoration: none;
+  color: inherit; 
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.current {
+  color: #111111;
+}
+
+.util {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  >:hover {
+    cursor: pointer;
+  }
+}
