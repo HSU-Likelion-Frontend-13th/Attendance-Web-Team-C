@@ -8,7 +8,10 @@
 
 .header {
   display: flex;
+  justify-content: center;
   padding: 75px 0px 39px 0px;
+  position: relative;
+  width: 100%;
   .img {
     position: absolute;
     left: 42px;
