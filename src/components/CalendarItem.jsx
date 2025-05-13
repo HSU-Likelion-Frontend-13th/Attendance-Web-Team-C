@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Calendar from "react-calendar";
 import "../styles/calendarItem.css";
 
-export const CalendarItem = () => {
+export const CalendarItem = ({isMain}) => {
   const [date, setDate] = useState(new Date());
 
   function onChange(nextDate) {
@@ -37,6 +37,8 @@ export const CalendarItem = () => {
           }
           return null;
         }}
+        prevLabel={isMain ? "" : null}
+        nextLabel={isMain ? "" : null}
       />
       {/* <div className="today">
         {date.getFullYear()}.{date.getMonth()+1}.{date.getDate()}
