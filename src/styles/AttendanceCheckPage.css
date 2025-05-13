@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+.header {
+  display: flex;
+  padding: 75px 0px 39px 0px;
+  .img {
+    position: absolute;
+    left: 42px;
+    top: 36px;
+  }
+  .title {
+    font-size: 64px;
+    font-weight: 600;
+  }
+}
+
+.contents {
+  .main-calendar {
+    position: relative;
+    z-index: 1000;
+  }
+  .left-calendar {
+    z-index: 1;
+    position: absolute;
+    top: 24.5%;
+    left: -24%;
+  }
+  .right-calendar {
+    z-index: 1;
+    position: absolute;
+    top: 24.5%;
+    right: -24%;
+  }
+}

@@ -1,5 +1,6 @@
 import { headerlogo2 } from "../assets";
 import { CalendarItem } from "../components/CalendarItem";
+import "../styles/AttendanceCheckPage.css";
 
 export const AttendanceCheckPage = () => {
   return (
