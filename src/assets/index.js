@@ -4,5 +4,5 @@ import logo from "./header-logo.svg";
 import menu from "./menu.svg";
 import profile from "./profile.svg";
 import search from "./search.svg";
-
-export { logo, menu, profile, search };
+import headerlogo2 from "./header-logo2.svg";
+export { logo, menu, profile, search, headerlogo2 };
