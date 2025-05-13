@@ -4,6 +4,9 @@
   justify-content: center;
   align-items: center;
   padding: 0;
+  width: 100vw;
+  overflow: hidden;
+  height: 1080px;
 }
 
 .header {
@@ -32,13 +35,13 @@
   .left-calendar {
     z-index: 1;
     position: absolute;
-    left: -110%;
-    top: 10%;
+    transform: translateX(-105%);
+    top: 5%;
   }
   .right-calendar {
     z-index: 1;
     position: absolute;
-    right: -110%;
-    top: 10%;
+    transform: translateX(105%);
+    top: 5%;
   }
 }
