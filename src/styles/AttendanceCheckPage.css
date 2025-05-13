@@ -21,6 +21,7 @@
 }
 
 .contents {
+  position: relative;
   .main-calendar {
     position: relative;
     z-index: 1000;
@@ -28,13 +29,13 @@
   .left-calendar {
     z-index: 1;
     position: absolute;
-    top: 24.5%;
-    left: -24%;
+    left: -110%;
+    top: 10%;
   }
   .right-calendar {
     z-index: 1;
     position: absolute;
-    top: 24.5%;
-    right: -24%;
+    right: -110%;
+    top: 10%;
   }
 }
