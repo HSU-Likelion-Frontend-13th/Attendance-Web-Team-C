@@ -1,11 +1,13 @@
+/* 전체 컨테이너 */
 .container {
   display: flex;
   justify-content: center;
-  align-items: start;         
-  padding-top: 60px;          
-  min-height: calc(100vh - 80px);  
+  align-items: start;
+  padding-top: 60px;
+  min-height: calc(100vh - 80px);
 }
 
+/* 카드 레이아웃 */
 .card {
   display: flex;
   width: 1000px;
@@ -16,7 +18,7 @@
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
-/* 왼쪽 폼 */
+/* 왼쪽 폼 영역 */
 .formSection {
   flex: 1;
   padding: 50px 40px;
@@ -25,26 +27,44 @@
   justify-content: center;
 }
 
+/* 제목 */
 .title {
   font-size: 28px;
   font-weight: 600;
   margin-bottom: 32px;
-  text-align: center;         
-  width: 100%;                
+  text-align: center;
+  width: 100%;
 }
 
+/* 폼 전체 */
 .form {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
+/* 입력 묶음 */
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* 라벨 */
+.label {
+  font-size: 15px;
+  font-weight: 500;
+  color: #374151;
+}
+
+/* 입력 필드 wrapper */
 .inputWrapper {
   position: relative;
   display: flex;
   align-items: center;
 }
 
+/* 아이콘 (왼쪽) */
 .icon {
   position: absolute;
   left: 16px;
@@ -52,6 +72,7 @@
   color: #9ca3af;
 }
 
+/* 기본 입력 필드 */
 .input {
   padding: 14px 18px 14px 42px;
   border: 1px solid #d1d5db;
@@ -62,15 +83,47 @@
   transition: border-color 0.2s;
 }
 
+/* 포커스 시 */
 .input:focus {
   border-color: #3b82f6;
 }
 
+/* 성공 스타일 */
+.inputSuccess {
+  border: 2px solid #3b82f6;
+  background-color: #e0f2fe;
+}
+
+/* 실패 스타일 */
+.inputError {
+  border: 2px solid #ef4444;
+  background-color: #fee2e2;
+}
+
+/* 눈 아이콘 */
+.eyeIcon {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+.eyeIcon:hover {
+  opacity: 1;
+}
+
+/* 저장 체크박스 */
 .rememberRow {
   font-size: 14px;
   color: #4b5563;
 }
 
+/* 로그인 버튼 */
 .loginBtn {
   background: #2563eb;
   color: white;
@@ -87,12 +140,13 @@
   background: #1d4ed8;
 }
 
+/* 회원가입 안내 텍스트 */
 .footerText {
   margin-top: 20px;
   font-size: 14px;
   color: #6b7280;
-  text-align: center;         
-  width: 100%; 
+  text-align: center;
+  width: 100%;
 }
 
 .link {
@@ -135,16 +189,4 @@
   .formSection {
     padding: 40px 20px;
   }
-}
-
-.inputGroup {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.label {
-  font-size: 15px;
-  font-weight: 500;
-  color: #374151; /* 약간 어두운 회색 */
 }
