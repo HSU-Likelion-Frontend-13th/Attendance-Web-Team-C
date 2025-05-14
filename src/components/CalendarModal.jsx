@@ -22,13 +22,14 @@ const data = [
   },
 ];
 
-export const CalendarModal = () => {
+export const CalendarModal = ({isClick}) => {
+
   return (
     <div className={styles.container}>
       <div className={styles.contents}>
         <div className={styles.top}>
           <div className={styles.today}>2025년 04년 23일</div>
-          <div className={styles.img}>
+          <div className={styles.img} onClick={()=>isClick(false)}>
             <img src={close} />
           </div>
         </div>

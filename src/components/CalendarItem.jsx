@@ -1,17 +1,15 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Calendar from "react-calendar";
 import "../styles/calendarItem.css";
 
-export const CalendarItem = ({isMain}) => {
+export const CalendarItem = ({ isMain, isClick }) => {
   const [date, setDate] = useState(new Date());
 
   function onChange(nextDate) {
     setDate(nextDate);
-  }
-
-  useEffect(() => {
     console.log(date);
-  }, [date]);
+    isClick(true);
+  }
 
   return (
     <div className="c">
@@ -28,7 +26,8 @@ export const CalendarItem = ({isMain}) => {
         minDetail="year" //  년까지만 보여줌(10년 안보여줌)
         formatDay={(locale, date) => date.getDate()} // 여기서 "일"을 제거할 수 있음
         navigationLabel={({ date }) => `${date.getMonth() + 1}월`} // 네비게이션 년 제거
-        tileClassName={({ date: tileDate, view }) => { // 각 날짜 타일에 클래스명을 동적으로 추가할 수 있음 
+        tileClassName={({ date: tileDate, view }) => {
+          // 각 날짜 타일에 클래스명을 동적으로 추가할 수 있음
           if (
             view === "month" &&
             tileDate.toDateString() === date.toDateString()

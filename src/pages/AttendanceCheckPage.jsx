@@ -1,9 +1,19 @@
+import { useState } from "react";
 import { headerlogo2 } from "../assets";
 import { CalendarItem } from "../components/CalendarItem";
+import { CalendarModal } from "../components/CalendarModal";
 import styles from "../styles/AttendanceCheckPage.module.css";
 
 export const AttendanceCheckPage = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  
+  const dateOnClick = (value) => {
+    setIsOpen(value);
+  }
+
   return (
+    <>
+    {isOpen ? <CalendarModal isClick={dateOnClick} /> : null}
     <div className={styles.container}>
       <div className={styles.header}>
         <div className={styles.img}>
@@ -13,7 +23,7 @@ export const AttendanceCheckPage = () => {
       </div>
       <div className={styles.contents}>
         <div className={styles.mainCalendar}>
-          <CalendarItem isMain={true}/>
+          <CalendarItem isMain={true} isClick={dateOnClick} isOpen={isOpen}/>
         </div>
         <div className={styles.leftCalendar}>
           <CalendarItem isMain={false}/>
@@ -23,5 +33,6 @@ export const AttendanceCheckPage = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
