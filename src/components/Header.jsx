@@ -23,7 +23,7 @@ export const Header = () => {
         <Link to="/attendance" className={getNavClass("/attendance")}>
           출석하기
         </Link>
-        <Link to="/attendanceCheck" className={getNavClass("/attendancePage")}>
+        <Link to="/calender" className={getNavClass("/calender")}>
           출격 확인
         </Link>
         <Link to="/" className={getNavClass("/")}>
