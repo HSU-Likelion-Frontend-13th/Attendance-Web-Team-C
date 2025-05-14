@@ -12,18 +12,18 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
   },
-  // { 컴포넌트 구현한 뒤 페이지 만들어지면 주석 제거
-  //   path: "/login",
-  //   element: <LoginPage />,
-  // },
+  { //컴포넌트 구현한 뒤 페이지 만들어지면 주석 제거
+    path: "/login",
+    element: <LoginPage />,
+  },
   {
     path: "/attendance",
     element: <AttendancePage />,
   },
-  // {
-  //   path: "/calender",
-  //   element: <AttendanceCheckPage />,
-  // },
+  {
+    path: "/calender",
+    element: <AttendanceCheckPage />,
+  },
   // 테스트를 위한 페이지 추가
   { 
     path: "/test",
