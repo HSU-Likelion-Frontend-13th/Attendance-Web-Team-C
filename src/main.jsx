@@ -6,22 +6,24 @@ import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { TestPage } from "./pages/TestPage.jsx";
 import { AttendanceCheckPage } from "./pages/AttendanceCheckPage.jsx";
+import { AttendancePage } from "./pages/AttendancePage";
+import { LoginPage } from "./pages/LoginPage.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
   },
-  // { 컴포넌트 구현한 뒤 페이지 만들어지면 주석 제거
-  //   path: "/login",
-  //   element: <LoginPage />,
-  // },
-  // {
-  //   path: "/attendance",
-  //   element: <AttendancePage />,
-  // },
+  { 
+    path: "/login",
+    element: <LoginPage />,
+  },
   {
-    path: "/calendar",
+    path: "/attendance",
+    element: <AttendancePage />,
+  },
+  {
+    path: "/calender",
     element: <AttendanceCheckPage />,
   },
   // 테스트를 위한 페이지 추가

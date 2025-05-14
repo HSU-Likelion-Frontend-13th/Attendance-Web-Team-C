@@ -1,0 +1,120 @@
+/* 컨테이너 */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 0;
+}
+
+/* 출석 입력 카드 */
+.card {
+  background: white;
+  border-radius: 24px;
+  padding: 40px 60px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  width: 400px;
+}
+
+/* 강의 정보 */
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.professor {
+  font-size: 16px;
+  color: #6b7280;
+  margin-bottom: 16px;
+}
+
+.divider {
+  border: none;
+  height: 1px;
+  background-color: #e5e7eb;
+  margin: 20px 0;
+  width: 100%;
+}
+
+.infoRow {
+  display: flex;
+  justify-content: space-between;
+  margin: 6px 0;
+  font-size: 15px;
+  color: #4b5563;
+}
+
+.label {
+  font-weight: 500;
+}
+
+.value {
+  font-weight: 400;
+}
+
+.time {
+  font-size: 14px;
+  margin: 20px 0;
+}
+
+.onTime {
+  color: #10b981; /* 초록 */
+}
+
+.late {
+  color: #ef4444; /* 빨강 */
+}
+
+/* 버튼 공통 */
+.button {
+  background: #2563eb;
+  color: white;
+  padding: 14px 0;
+  border: none;
+  border-radius: 999px;
+  width: 100%;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.button:hover {
+  background: #1d4ed8;
+}
+
+/* ✅ 출석 결과 화면용 */
+.resultContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 0;
+}
+
+.resultCard {
+  background: white;
+  border-radius: 28px;
+  padding: 60px 80px;
+  text-align: center;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+  width: 420px;
+}
+
+.statusIcon {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 30px;
+}
+
+.resultTime {
+  font-size: 16px;
+  color: #6b7280;
+  margin-bottom: 16px;
+}
+
+.resultMessage {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 32px;
+}
