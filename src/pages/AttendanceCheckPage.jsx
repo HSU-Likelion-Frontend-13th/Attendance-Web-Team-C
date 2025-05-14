@@ -1,24 +1,24 @@
 import { headerlogo2 } from "../assets";
 import { CalendarItem } from "../components/CalendarItem";
-import "../styles/AttendanceCheckPage.css";
+import styles from "../styles/AttendanceCheckPage.module.css";
 
 export const AttendanceCheckPage = () => {
   return (
-    <div className="container">
-      <div className="header">
-        <div className="img">
+    <div className={styles.container}>
+      <div className={styles.header}>
+        <div className={styles.img}>
           <img src={headerlogo2} />
         </div>
-        <span className="title">내 출석 현황</span>
+        <span className={styles.title}>내 출석 현황</span>
       </div>
-      <div className="contents">
-        <div className="main-calendar">
+      <div className={styles.contents}>
+        <div className={styles.mainCalendar}>
           <CalendarItem isMain={true}/>
         </div>
-        <div className="left-calendar">
+        <div className={styles.leftCalendar}>
           <CalendarItem isMain={false}/>
         </div>
-        <div className="right-calendar">
+        <div className={styles.rightCalendar}>
           <CalendarItem isMain={false}/>
         </div>
       </div>

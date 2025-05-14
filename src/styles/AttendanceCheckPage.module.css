@@ -1,12 +1,10 @@
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   padding: 0;
-  width: 100vw;
   overflow: hidden;
-  height: 1080px;
+  min-height: 1080px;
 }
 
 .header {
@@ -28,17 +26,17 @@
 
 .contents {
   position: relative;
-  .main-calendar {
+  .mainCalendar {
     position: relative;
     z-index: 1000;
   }
-  .left-calendar {
+  .leftCalendar {
     z-index: 1;
     position: absolute;
     transform: translateX(-105%);
     top: 5%;
   }
-  .right-calendar {
+  .rightCalendar {
     z-index: 1;
     position: absolute;
     transform: translateX(105%);
