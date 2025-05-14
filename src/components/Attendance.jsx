@@ -1,41 +1,32 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "../styles/attendance.module.css";
+import attendanceIcon from "../assets/attendance.svg";
+import lateIcon from "../assets/late.svg";
+import absenceIcon from "../assets/absence.svg";
 
 export const Attendance = () => {
-  const [isLate, setIsLate] = useState(false);
+  const [status, setStatus] = useState("before"); // before | attendance | late | absent
   const [currentTime, setCurrentTime] = useState(new Date());
-  const [status, setStatus] = useState("before"); // before | normal | late | absent
+  const navigate = useNavigate();
 
-  const classHour = 15;
-  const classMinute = 0;
+  const attendanceStartTime = new Date();
+  attendanceStartTime.setHours(15, 0, 0, 0); // 출석 기준 시간: 15:00
 
   useEffect(() => {
     const timer = setInterval(() => {
       const now = new Date();
       setCurrentTime(now);
-      if (status === "before") checkLateStatus(now);
     }, 1000);
     return () => clearInterval(timer);
-  }, [status]);
-
-  const checkLateStatus = (now) => {
-    const start = new Date(now);
-    start.setHours(classHour);
-    start.setMinutes(classMinute);
-    start.setSeconds(0);
-
-    const diff = (now - start) / 60000;
-
-    if (diff <= 10 && diff >= 0) setIsLate(false);
-    else setIsLate(true);
-  };
+  }, []);
 
   const handleAttendance = () => {
     const now = new Date();
-    const diff = (now - new Date(now.setHours(classHour, classMinute, 0))) / 60000;
+    const diff = (now - attendanceStartTime) / 60000;
 
     if (diff <= 10 && diff >= 0) {
-      setStatus("normal");
+      setStatus("attendance");
     } else if (diff > 10 && diff <= 30) {
       setStatus("late");
     } else {
@@ -46,22 +37,46 @@ export const Attendance = () => {
   const formatTime = (date) =>
     `${date.getHours()}시 ${date.getMinutes()}분`;
 
+  const formatTimeDiff = (now) => {
+    const diffInMin = Math.floor((now - attendanceStartTime) / 60000);
+    const sign = diffInMin >= 0 ? "+" : "-";
+    const absMin = Math.abs(diffInMin);
+    const h = String(Math.floor(absMin / 60)).padStart(2, "0");
+    const m = String(absMin % 60).padStart(2, "0");
+    return `(${sign}${h}:${m})`;
+  };
+
+  const getStatusIcon = () => {
+    switch (status) {
+      case "attendance":
+        return attendanceIcon;
+      case "late":
+        return lateIcon;
+      case "absent":
+        return absenceIcon;
+      default:
+        return null;
+    }
+  };
+
   if (status !== "before") {
     return (
       <div className={styles.resultContainer}>
         <div className={styles.resultCard}>
-          <div className={styles[`icon-${status}`]}></div>
+          <img src={getStatusIcon()} alt={status} className={styles.statusIcon} />
           <p className={styles.resultTime}>출석 시간 {formatTime(currentTime)}</p>
           <h3 className={styles.resultMessage}>
-            {status === "normal" && "정상 출석되었습니다!"}
+            {status === "attendance" && "정상 출석되었습니다!"}
             {status === "late" && "지각 처리되었습니다."}
             {status === "absent" && "결석 처리되었습니다.."}
           </h3>
-          <button className={styles.button}>홈으로 되돌아가기</button>
+          <button className={styles.button} onClick={() => navigate("/calender")}>내 출석 현황 보러가기</button>
         </div>
       </div>
     );
   }
+
+  const isLate = (currentTime - attendanceStartTime) / 60000 > 10;
 
   return (
     <div className={styles.container}>
@@ -80,7 +95,7 @@ export const Attendance = () => {
         </div>
 
         <p className={`${styles.time} ${isLate ? styles.late : styles.onTime}`}>
-          현재 시간: {formatTime(currentTime)}
+          현재 시간: {formatTime(currentTime)} {formatTimeDiff(currentTime)}
         </p>
 
         <button className={styles.button} onClick={handleAttendance}>출석하기</button>
