@@ -6,6 +6,7 @@ import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { TestPage } from "./pages/TestPage.jsx";
 import { AttendancePage } from "./pages/AttendancePage";
+import { LoginPage } from "./pages/LoginPage.jsx";
 
 const router = createBrowserRouter([
   {
