@@ -20,7 +20,8 @@
 .react-calendar {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 100px 0px;
   width: 890px;
   height: 808px;
   position: relative;
