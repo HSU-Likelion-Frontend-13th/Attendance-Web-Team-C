@@ -2,13 +2,14 @@ import { useState } from "react";
 import Calendar from "react-calendar";
 import "../styles/calendarItem.css";
 
-export const CalendarItem = ({ isMain, isClick }) => {
+export const CalendarItem = ({ isMain, isClick, setTodayDate }) => {
   const [date, setDate] = useState(new Date());
 
   function onChange(nextDate) {
     setDate(nextDate);
     console.log(date);
     isClick(true);
+    setTodayDate(date);
   }
 
   return (
