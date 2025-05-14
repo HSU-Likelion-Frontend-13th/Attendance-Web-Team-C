@@ -1,10 +1,10 @@
-// 📁 components/Attendance.jsx
 import React, { useEffect, useState } from "react";
 import styles from "../styles/attendance.module.css";
 
 export const Attendance = () => {
   const [isLate, setIsLate] = useState(false);
   const [currentTime, setCurrentTime] = useState(new Date());
+  const [status, setStatus] = useState("before"); // before | normal | late | absent
 
   const classHour = 15;
   const classMinute = 0;
@@ -13,39 +13,55 @@ export const Attendance = () => {
     const timer = setInterval(() => {
       const now = new Date();
       setCurrentTime(now);
-      checkIfLate(now);
+      if (status === "before") checkLateStatus(now);
     }, 1000);
     return () => clearInterval(timer);
-  }, []);
+  }, [status]);
 
-  const checkIfLate = (now) => {
+  const checkLateStatus = (now) => {
     const start = new Date(now);
     start.setHours(classHour);
     start.setMinutes(classMinute);
     start.setSeconds(0);
 
-    const diff = (now - start) / 60000; // 분
-    setIsLate(diff > 10);
+    const diff = (now - start) / 60000;
+
+    if (diff <= 10 && diff >= 0) setIsLate(false);
+    else setIsLate(true);
+  };
+
+  const handleAttendance = () => {
+    const now = new Date();
+    const diff = (now - new Date(now.setHours(classHour, classMinute, 0))) / 60000;
+
+    if (diff <= 10 && diff >= 0) {
+      setStatus("normal");
+    } else if (diff > 10 && diff <= 30) {
+      setStatus("late");
+    } else {
+      setStatus("absent");
+    }
   };
 
   const formatTime = (date) =>
     `${date.getHours()}시 ${date.getMinutes()}분`;
 
-  const formatTimeDiff = (now) => {
-  const start = new Date(now);
-  start.setHours(classHour);
-  start.setMinutes(classMinute);
-  start.setSeconds(0);
-
-  const diffInMin = Math.floor((now - start) / 60000);
-  const sign = diffInMin >= 0 ? "+" : "-";
-  const absMin = Math.abs(diffInMin);
-  const h = String(Math.floor(absMin / 60)).padStart(2, "0");
-  const m = String(absMin % 60).padStart(2, "0");
-
-  return `(${sign}${h}:${m})`;
-};
-
+  if (status !== "before") {
+    return (
+      <div className={styles.resultContainer}>
+        <div className={styles.resultCard}>
+          <div className={styles[`icon-${status}`]}></div>
+          <p className={styles.resultTime}>출석 시간 {formatTime(currentTime)}</p>
+          <h3 className={styles.resultMessage}>
+            {status === "normal" && "정상 출석되었습니다!"}
+            {status === "late" && "지각 처리되었습니다."}
+            {status === "absent" && "결석 처리되었습니다.."}
+          </h3>
+          <button className={styles.button}>홈으로 되돌아가기</button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className={styles.container}>
@@ -53,7 +69,6 @@ export const Attendance = () => {
         <h2 className={styles.title}>UX디자인의 이해</h2>
         <p className={styles.professor}>김교수</p>
         <hr className={styles.divider} />
-
 
         <div className={styles.infoRow}>
           <span className={styles.label}>강의시간</span>
@@ -65,11 +80,10 @@ export const Attendance = () => {
         </div>
 
         <p className={`${styles.time} ${isLate ? styles.late : styles.onTime}`}>
-        현재 시간: {formatTime(currentTime)} {formatTimeDiff(currentTime)}
+          현재 시간: {formatTime(currentTime)}
         </p>
 
-
-        <button className={styles.button}>출석하기</button>
+        <button className={styles.button} onClick={handleAttendance}>출석하기</button>
       </div>
     </div>
   );
