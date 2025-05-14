@@ -5,6 +5,8 @@ import "../src/styles/global.css";
 import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { TestPage } from "./pages/TestPage.jsx";
+import { LoginPage } from "./pages/LoginPage.jsx";
+
 
 const router = createBrowserRouter([
   {
