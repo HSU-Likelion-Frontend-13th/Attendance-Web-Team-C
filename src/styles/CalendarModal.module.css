@@ -74,4 +74,12 @@
     color: #59845b;
     font-weight: 600;
   }
+  .late {
+    background-color: #F7E7C4;
+    color: #80755E;
+  }
+  .absence {
+    background-color: #DA453B33;
+    color: #955C57;
+  }
 }

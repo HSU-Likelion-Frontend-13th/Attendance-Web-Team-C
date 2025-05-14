@@ -34,12 +34,20 @@ export const CalendarModal = () => {
         </div>
         <div className={styles.statusBox}>
           {data.map((el, index) => (
-          <div className={styles.status} key={index} >
-            <div className={styles.title}>{el.title}</div>
-            <div className={styles.professor}>{el.professor}</div>
-            <div className={styles.place}>{el.place}</div>
-            <div className={styles.attendance}>{el.attendance}</div>
-          </div>
+            <div className={styles.status} key={index}>
+              <div className={styles.title}>{el.title}</div>
+              <div className={styles.professor}>{el.professor}</div>
+              <div className={styles.place}>{el.place}</div>
+              <div
+                className={`
+                  ${styles.attendance} 
+                ${el.attendance === "지각" ? styles.late : ""} 
+                ${el.attendance === "결석" ? styles.absence : ""}
+                `}
+              >
+                {el.attendance}
+              </div>
+            </div>
           ))}
         </div>
       </div>
