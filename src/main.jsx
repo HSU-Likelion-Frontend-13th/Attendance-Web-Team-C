@@ -5,6 +5,7 @@ import "../src/styles/global.css";
 import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { TestPage } from "./pages/TestPage.jsx";
+import { AttendanceCheckPage } from "./pages/AttendanceCheckPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -19,10 +20,10 @@ const router = createBrowserRouter([
   //   path: "/attendance",
   //   element: <AttendancePage />,
   // },
-  // {
-  //   path: "/calender",
-  //   element: <AttendanceCheckPage />,
-  // },
+  {
+    path: "/calendar",
+    element: <AttendanceCheckPage />,
+  },
   // 테스트를 위한 페이지 추가
   { 
     path: "/test",
