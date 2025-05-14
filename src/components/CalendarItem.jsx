@@ -7,9 +7,9 @@ export const CalendarItem = ({ isMain, isClick, setTodayDate }) => {
 
   function onChange(nextDate) {
     setDate(nextDate);
-    console.log(date);
+    console.log(nextDate);
     isClick(true);
-    setTodayDate(date);
+    setTodayDate(nextDate);
   }
 
   return (
