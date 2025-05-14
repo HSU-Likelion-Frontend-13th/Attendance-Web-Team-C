@@ -3,6 +3,7 @@ import styles from "../styles/Login.module.css";
 import visualImage from "../assets/logo.svg";
 import eveIcon from "../assets/eye.svg";
 import openEveIcon from "../assets/openeye.svg"; // 👁️ 열림 상태 아이콘
+import { useNavigate } from "react-router-dom";
 
 export function Login() {
   const [name, setName] = useState("");
@@ -10,6 +11,7 @@ export function Login() {
   const [remember, setRemember] = useState(false);
   const [status, setStatus] = useState("default");
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const savedName = localStorage.getItem("name");
@@ -38,6 +40,11 @@ export function Login() {
       localStorage.removeItem("studentId");
     }
   };
+
+  useEffect(() => {
+    if(status == "success")
+      navigate("/attendance");  
+  },[status]);
 
   const getInputClass = () => {
     if (status === "success") return `${styles.input} ${styles.inputSuccess}`;
