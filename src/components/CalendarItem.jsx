@@ -40,9 +40,9 @@ export const CalendarItem = ({ isMain, isClick, setTodayDate }) => {
         prevLabel={isMain ? "" : null}
         nextLabel={isMain ? "" : null}
       />
-      {/* <div className="today">
-        {date.getFullYear()}.{date.getMonth()+1}.{date.getDate()}
-      </div> */}
+      <div className="today">
+        {date.getFullYear()}.{String(date.getMonth()+1).padStart(2, '0')}.{String(date.getDate()).padStart(2, '0')}
+      </div>
     </div>
   );
 };

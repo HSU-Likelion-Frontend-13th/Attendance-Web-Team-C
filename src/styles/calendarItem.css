@@ -9,13 +9,13 @@
   width: 100%;
 }
 
-/* .today {
+.today {
   color: #9a9a9a;
   font-size: 40px;
   position: absolute;
   top: 132px;
-  left: 720px;
-} */
+  left: 218px;
+}
 
 .react-calendar {
   display: flex;
