@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  overflow: hidden;
+  min-height: 1080px;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  padding: 75px 0px 39px 0px;
+  position: relative;
+  width: 100%;
+  .img {
+    position: absolute;
+    left: 42px;
+    top: 36px;
+  }
+  .title {
+    font-size: 64px;
+    font-weight: 600;
+  }
+}
+
+.contents {
+  position: relative;
+  .mainCalendar {
+    position: relative;
+    z-index: 1000;
+  }
+  .leftCalendar {
+    z-index: 1;
+    position: absolute;
+    transform: translateX(-105%);
+    top: 5%;
+  }
+  .rightCalendar {
+    z-index: 1;
+    position: absolute;
+    transform: translateX(105%);
+    top: 5%;
+  }
+}
