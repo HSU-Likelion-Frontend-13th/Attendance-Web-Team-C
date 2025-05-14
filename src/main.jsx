@@ -5,6 +5,7 @@ import "../src/styles/global.css";
 import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { TestPage } from "./pages/TestPage.jsx";
+import { AttendancePage } from "./pages/AttendancePage";
 
 const router = createBrowserRouter([
   {
@@ -15,10 +16,10 @@ const router = createBrowserRouter([
   //   path: "/login",
   //   element: <LoginPage />,
   // },
-  // {
-  //   path: "/attendance",
-  //   element: <AttendancePage />,
-  // },
+  {
+    path: "/attendance",
+    element: <AttendancePage />,
+  },
   // {
   //   path: "/calender",
   //   element: <AttendanceCheckPage />,

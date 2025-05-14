@@ -1,0 +1,81 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 0;
+}
+
+.card {
+  background: white;
+  border-radius: 24px;
+  padding: 40px 60px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  width: 360px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.professor {
+  font-size: 16px;
+  color: #6b7280;
+  margin-bottom: 24px;
+}
+
+.infoRow {
+  display: flex;
+  justify-content: space-between;
+  margin: 6px 0;
+  font-size: 15px;
+  color: #4b5563;
+}
+
+.label {
+  font-weight: 500;
+}
+
+.value {
+  font-weight: 400;
+}
+
+.time {
+  font-size: 14px;
+  margin: 20px 0;
+}
+
+.onTime {
+  color: #10b981;
+}
+
+.late {
+  color: #ef4444;
+}
+
+.button {
+  background: #2563eb;
+  color: white;
+  padding: 12px 0;
+  border: none;
+  border-radius: 999px;
+  width: 100%;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.button:hover {
+  background: #1d4ed8;
+}
+
+.divider {
+  border: none;
+  height: 1px;
+  background-color: #e5e7eb; /* 연회색 */
+  margin: 20px 0;
+  width: 100%;
+}
