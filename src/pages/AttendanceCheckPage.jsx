@@ -3,8 +3,10 @@ import { headerlogo2 } from "../assets";
 import { CalendarItem } from "../components/CalendarItem";
 import { CalendarModal } from "../components/CalendarModal";
 import styles from "../styles/AttendanceCheckPage.module.css";
+import { useNavigate } from "react-router-dom";
 
 export const AttendanceCheckPage = () => {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [todayDate, setTodayDate] = useState("");
   const dateOnClick = (value) => {
@@ -16,7 +18,7 @@ export const AttendanceCheckPage = () => {
       {isOpen ? <CalendarModal isClick={dateOnClick} todayDate={todayDate}/> : null}
       <div className={styles.container}>
         <div className={styles.header}>
-          <div className={styles.img}>
+          <div className={styles.img} onClick={()=>navigate("/")}>
             <img src={headerlogo2} />
           </div>
           <span className={styles.title}>내 출석 현황</span>
